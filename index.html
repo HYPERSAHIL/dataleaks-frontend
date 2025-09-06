@@ -1,13 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Check for leaked data" />
-    <title>Leak Checker</title>
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataLeaks - Instant Data Lookup</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔍</text></svg>">
 </head>
 <body>
-    <div id="root"></div>
+    <div class="container">
+        <header>
+            <h1>🔍 DataLeaks</h1>
+            <p class="tagline">Instant data lookup service</p>
+        </header>
+        
+        <main>
+            <form id="dataForm" class="search-form">
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="numberInput" 
+                        placeholder="Enter 10-digit number" 
+                        maxlength="10"
+                        autocomplete="off"
+                        required
+                    >
+                    <button type="submit" id="searchBtn">
+                        <span class="btn-text">Search</span>
+                        <span class="loading-spinner hidden">🔍</span>
+                    </button>
+                </div>
+            </form>
+            
+            <div id="loading" class="status-message hidden">
+                <div class="spinner"></div>
+                <p>Searching database...</p>
+            </div>
+            
+            <div id="result" class="result hidden">
+                <div id="dataContent" class="data-content"></div>
+            </div>
+            
+            <div id="error" class="error-message hidden">
+                <p id="errorMessage"></p>
+            </div>
+        </main>
+        
+        <footer>
+            <p>DataLeaks &copy; 2023 | Secure Data Lookup Service</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
